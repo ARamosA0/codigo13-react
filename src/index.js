@@ -5,6 +5,7 @@ import reportWebVitals from './reportWebVitals';
 // Para poder importar un componente debemos llamarlo por el nombre que fue exportado
 import PrimerComponente from './App'
 
+
 ReactDOM.render(
   <React.StrictMode>
   {/** Para usar in componente debo tratarlo como si fuera una etiqueta HTML */}
