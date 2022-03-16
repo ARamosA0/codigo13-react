@@ -4,12 +4,16 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 // Para poder importar un componente debemos llamarlo por el nombre que fue exportado
 import PrimerComponente from './App'
+// import 'bootstrap/dist/css/bootstrap.min.css';
+import Home from "./pages/Home"
+
 
 
 ReactDOM.render(
   <React.StrictMode>
   {/** Para usar in componente debo tratarlo como si fuera una etiqueta HTML */}
-    <PrimerComponente />
+    {/* <PrimerComponente /> */}
+    <Home />
   </React.StrictMode>,
   document.getElementById('root')
 );

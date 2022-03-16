@@ -1,4 +1,5 @@
 import { useState } from "react";
+import {Button, Form} from "react-bootstrap"
 // Esto sera un componente el cual nos renderizara un formulario de registro
 const FormRegister = () => {
   // como podemos capturar el valor de un input
@@ -32,7 +33,7 @@ const FormRegister = () => {
         <p>
           {/* Al ser un input se sobre entiende que el valor que se envia es event 
           por ende no hace falta pasarle un parametro */}
-          <input
+          <Form.Control
             type="text"
             onChange={handleInputName}
             placeholder="Ingrese su nombre"
