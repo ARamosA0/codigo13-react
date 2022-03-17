@@ -3,7 +3,7 @@
  */
 
 // Una buena practica es tener la URL del API en una variable
-const BASE_URL = "https://pokeapi.co/api/v2/pokemon"; //?limit=120
+const BASE_URL = "https://pokeapi.co/api/v2/pokemon?limit=20"; 
 
 // Podemos crear una funcion generica la cual se encargue de hacer una peticion
 // Como parametro vamos a recibir la URL que puede ser ña que lista 
