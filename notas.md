@@ -27,3 +27,13 @@ Las siguientes carpetas son obligatorias en un proyecto
 - **service =>** Servicios, API, UTL, GET, POST, PUT, DELT 
 
 
+`props =>` Es la forma en la que podemos pasr uno o mas parametros entre componentes
+
+`<Pokemondetail url="https://link.com" nombre="Pikachu">`
+**=>**
+```
+const Pokemondetail = (props) => {
+    console.log(props.url); // => https://link.com
+    console.log(props.nombre); // => Pikachu
+    }
+```

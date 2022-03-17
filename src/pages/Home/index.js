@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { Container, Card, CardContent, CardMedia, Grid } from "@mui/material";
 import { getDataFromPokemon } from "../../service";
+import PokemonDetail from "../../components/PokemonDetail"
 // Vamos a ver como poder ejecutar la funcion que se encarga de trar los pokemons
 
 const Home = () => {
@@ -46,15 +47,16 @@ const Home = () => {
                 ) : (
                     <h4>No hay datos</h4>
                 )} */}
-        <Grid container spacing={3}>
+        <Grid container spacing={3} className="container">
             {pokemons.length > 0 &&
                 pokemons.map((pokemon, index) => (
                 // codigo visual
                 <Grid item md={4} xs={4} lg={4} sm={12}>
                     <Card className="card-pokemon">
                         <CardMedia className="img-pokemon" component="img" image={`${imageUrl}${index + 1}.svg`} />
-                        <CardContent>
+                        <CardContent className="center">
                             <h3 className="name-pokemon">{pokemon.name}</h3>
+                            <PokemonDetail nombre={pokemon.name}/>
                         </CardContent>
                     </Card>
                 </Grid>
