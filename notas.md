@@ -20,8 +20,10 @@ es decir solo puede haber un select, header, div, etc
 
 Las siguientes carpetas son obligatorias en un proyecto
 
-- *assets =>* Se guardan archivos, img, videos, logos, svg, etc
-- *component =>* archivos reutilizables
-- *pages =>*paginas, vistas
-- *router =>* Rutas de un proyecto
-- *service =>*Servicios, API, UTL, GET, POST, PUT, DELET
+- **assets =>** Se guardan archivos, img, videos, logos, svg, etc
+- **component =>** archivos reutilizables
+- **pages =>** Paginas, vistas
+- **router =>** Rutas de un proyecto
+- **service =>** Servicios, API, UTL, GET, POST, PUT, DELT 
+
+
