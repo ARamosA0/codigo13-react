@@ -41,3 +41,13 @@ h5{
   text-transform: uppercase;
   text-align: center;
 }
+
+.img-pokemon-dialog{
+  margin: auto;
+}
+
+h5{
+  text-align: left;
+  text-transform: uppercase;
+  color: #000;
+}
