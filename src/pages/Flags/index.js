@@ -28,6 +28,13 @@ const Flags = () => {
   const handleRegion = async (e) => {
     console.log(e.target.value);
     setRegion(e.target.value);
+    // vamos a evaluar si el valor es igual a all ejecutas la funcion
+    // fetchCountries
+    if (e.target.value === "all"){
+        fetchCountries();
+        return;
+    }
+
     // primero debemos limpiar para poder llenarlo con la nueva informacion
     setCountries([]);
     const response = await getDataFromPokemon(
@@ -35,6 +42,25 @@ const Flags = () => {
     );
     setCountries(response);
   };
+
+//   Vamos acrear una funcion la cual se encarge de buscar los paises
+  const handleSearchCountry = (e) =>{
+    //   Es una buena preactica decirle que inicie a contar cuando tengamos mas de tres letras
+    const countryName = e.target.value;
+    if (countryName.length === 0){
+        fetchCountries();
+    }
+
+    if(countryName.length > 3){
+        // Iniciamos la busqueda
+        // Para poder hacer la busqueda, debo transformar todo el texto a UPPERCASE o LOWERCASE
+        const filterCountries = countries.filter((country) =>
+            country.name.official.toUpperCase().includes(countryName.toUpperCase()));
+        setCountries(filterCountries);
+    };
+  };
+
+
 
   useEffect(() => {
     fetchCountries();
@@ -44,7 +70,7 @@ const Flags = () => {
     <Container>
       <Grid container spacing={3} mt={5}>
         <Grid item md={6}>
-          <TextField label="Search for a country..." />
+          <TextField onChange={handleSearchCountry} label="Search for a country..." />
         </Grid>
         <Grid item md={6}>
           <FormControl fullWidth>
@@ -54,6 +80,7 @@ const Flags = () => {
               value={region}
               onChange={handleRegion}
             >
+              <MenuItem value="all">Todas las regiones</MenuItem>
               <MenuItem value="Africa">Africa</MenuItem>
               <MenuItem value="Americas">Americas</MenuItem>
               <MenuItem value="Asia">Asia</MenuItem>
