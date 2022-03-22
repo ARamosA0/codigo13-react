@@ -10,6 +10,7 @@ import {
   InputLabel,
   Select,
   MenuItem,
+  CircularProgress,
 } from "@mui/material";
 import { getDataFromPokemon } from "../../service";
 
@@ -26,13 +27,12 @@ const Flags = () => {
   };
 
   const handleRegion = async (e) => {
-    console.log(e.target.value);
     setRegion(e.target.value);
-    // vamos a evaluar si el valor es igual a all ejecutas la funcion
+    // vamos a evaluar si el valor es igual a all entonces ejecutsa la funcion
     // fetchCountries
-    if (e.target.value === "all"){
-        fetchCountries();
-        return;
+    if (e.target.value === "all") {
+      fetchCountries();
+      return;
     }
 
     // primero debemos limpiar para poder llenarlo con la nueva informacion
@@ -43,24 +43,24 @@ const Flags = () => {
     setCountries(response);
   };
 
-//   Vamos acrear una funcion la cual se encarge de buscar los paises
-  const handleSearchCountry = (e) =>{
-    //   Es una buena preactica decirle que inicie a contar cuando tengamos mas de tres letras
+  // vamos a crear una funcion la cual se encargue de buscar los paises
+  const handleSearchCountry = (e) => {
+    // Es una buena practica decirle que inicie a contar cuando tengamos mas de 3 letras
     const countryName = e.target.value;
-    if (countryName.length === 0){
-        fetchCountries();
+
+    if (countryName.length === 0) {
+      fetchCountries();
     }
 
-    if(countryName.length > 3){
-        // Iniciamos la busqueda
-        // Para poder hacer la busqueda, debo transformar todo el texto a UPPERCASE o LOWERCASE
-        const filterCountries = countries.filter((country) =>
-            country.name.official.toUpperCase().includes(countryName.toUpperCase()));
-        setCountries(filterCountries);
-    };
+    if (countryName.length > 3) {
+      // aca debemos iniciar la busqueda
+      // para poder hacer la busqueda debeo transformar todo el text a UPPERCASE or LOWECASE
+      const filterCountries = countries.filter((country) =>
+        country.name.official.toUpperCase().includes(countryName.toUpperCase())
+      );
+      setCountries(filterCountries);
+    }
   };
-
-
 
   useEffect(() => {
     fetchCountries();
@@ -70,7 +70,11 @@ const Flags = () => {
     <Container>
       <Grid container spacing={3} mt={5}>
         <Grid item md={6}>
-          <TextField onChange={handleSearchCountry} label="Search for a country..." />
+          <TextField
+            onChange={handleSearchCountry}
+            label="Search for a country..."
+            fullWidth
+          />
         </Grid>
         <Grid item md={6}>
           <FormControl fullWidth>
@@ -89,7 +93,7 @@ const Flags = () => {
             </Select>
           </FormControl>
         </Grid>
-        {countries.length > 0 &&
+        {countries.length > 0 ? (
           countries.map((country) => (
             <Grid item md={3} xs={12}>
               <Card>
@@ -106,7 +110,13 @@ const Flags = () => {
                 </CardContent>
               </Card>
             </Grid>
-          ))}
+          ))
+        ) : (
+          <div className="center loading">
+            <CircularProgress />
+            <h4>Cargando...</h4>
+          </div>
+        )}
       </Grid>
     </Container>
   );
