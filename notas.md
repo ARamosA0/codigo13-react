@@ -37,3 +37,27 @@ const Pokemondetail = (props) => {
     console.log(props.nombre); // => Pikachu
     }
 ```
+
+## Layout
+
+Estructura visual que envuekve a toda la app 
+
+- Menu
+- Sidebar
+- Home, report, users
+- Footer
+
+Material tiene
+- Navbar
+- Drawer
+
+
+## React Router
+
+`<Outlet /> ` => Nos permite eredar componentes con un roat que contine el layout
+
+
+`Context =>` Es la forma en la que podemos compartir datos de manera global, es decir crear un dato y poder obtener el valor de este en cualquier componente
+
+
+ 

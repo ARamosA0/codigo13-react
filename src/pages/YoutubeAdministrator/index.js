@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
+import {Link} from "react-router-dom";
 import {
-  Container,
   Button,
-  Grid,
+  Container,
   Table,
   TableBody,
   TableCell,
@@ -10,19 +10,20 @@ import {
   TableHead,
   TableRow,
   Paper,
+  Grid,
 } from "@mui/material";
 import EditRoundedIcon from "@mui/icons-material/EditRounded";
 import DeleteForeverRoundedIcon from "@mui/icons-material/DeleteForeverRounded";
 import { getMovies, deleteItem } from "../../service/movies";
 import swal from "sweetalert";
+// components
+import MovieCreate from "../../components/MovieCreate";
 
 const YoutubeAdministrator = () => {
   const [movies, setMovies] = useState([]);
-
   // reto deben completar el codigo para poder traer las peliculas
   // cuando la pagina de inicie
   // solo la parte del codigo
-
   const fetchMovies = async () => {
     const response = await getMovies();
     setMovies(response);
@@ -41,8 +42,8 @@ const YoutubeAdministrator = () => {
     if (response) {
       await deleteItem(id);
       // despues de eliminar la pelicula debemos recargar la tabla
-      // despues de eliminar la pelicula vamos a llamar a fetch movies
-      // para que actualice la tabla y muestre los datos actualizados
+      // despues de elimniar la pelicula vamos a llamar a fetchMovies
+      // para que basicamente actualice la tabla y muestro los datos actualizados
       await fetchMovies();
     }
   };
@@ -53,7 +54,14 @@ const YoutubeAdministrator = () => {
 
   return (
     <Container>
-      <h4>Lista de Peliculas</h4>
+      <Grid container spacing={3} mt={5}>
+        <Grid item md={6}>
+          <h4>Lista de Peliculas</h4>
+        </Grid>
+        <Grid item md={6} sx={{ textAlign: "right" }}>
+          <MovieCreate fetchMovies={fetchMovies} />
+        </Grid>
+      </Grid>
       <TableContainer component={Paper}>
         <Table>
           <TableHead>
@@ -76,9 +84,11 @@ const YoutubeAdministrator = () => {
                     <a href={movie.video_link}>Ver video</a>
                   </TableCell>
                   <TableCell>
-                    <Button color="info">
-                      <EditRoundedIcon />
-                    </Button>
+                    <Link Link to={`/youtube/administrador/editar/${movie.id}`}>
+                      <Button color="info">
+                        <EditRoundedIcon />
+                      </Button>
+                    </Link>
                     <Button
                       color="error"
                       onClick={() => fetchDeleteItem(movie.id)}

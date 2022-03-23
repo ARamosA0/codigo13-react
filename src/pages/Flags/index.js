@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import {Link} from "react-router-dom";
 import {
   Card,
   CardContent,
@@ -96,19 +97,21 @@ const Flags = () => {
         {countries.length > 0 ? (
           countries.map((country) => (
             <Grid item md={3} xs={12}>
-              <Card>
-                <CardMedia
-                  component="img"
-                  height={200}
-                  image={country.flags.svg}
-                />
-                <CardContent>
-                  <h4>{country.name.official}</h4>
-                  <p>Population: {country.population}</p>
-                  <p>Region: {country.region}</p>
-                  <p>Capital: {country.capital}</p>
-                </CardContent>
-              </Card>
+              <Link Link to={`/flags/data/${country.name.common}`}>
+                <Card>
+                  <CardMedia
+                    component="img"
+                    height={200}
+                    image={country.flags.svg}
+                  />
+                  <CardContent>
+                    <h4>{country.name.official}</h4>
+                    <p>Population: {country.population}</p>
+                    <p>Region: {country.region}</p>
+                    <p>Capital: {country.capital}</p>
+                  </CardContent>
+                </Card>
+              </Link>
             </Grid>
           ))
         ) : (
