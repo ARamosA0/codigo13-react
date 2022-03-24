@@ -16,6 +16,9 @@ import DataFlags from "../pages/DetailFlags";
 import Login from "../pages/Login"
 // Layout
 import Main from "../layout/Main";
+import Private from "../layout/Private";
+import Ecommerce from "../layout/Ecommerce";
+import PopularWeek from "../pages/PopularWeek";
 
 // Nuestro Router va a ser un componente el cual se encargue de retornar
 // las rutas con su respectiva vista
@@ -24,21 +27,34 @@ const Router = () => {
   return (
     <BrowserRouter>
       <Routes>
+      {/* ROUTE DEL MAIN (PUBLICAS) */}
+        <Route path="/login" element={<Login />}/>
         <Route element={<Main />}>
           <Route path="/" element={<Home />} />
           <Route path="/flags" element={<Flags />} />
           <Route path="/flags/data/:name" element={<DataFlags />} />
           <Route path="/youtube" element={<Youtube />} />
-          <Route
+        </Route>
+
+        {/* ROUTE para ecommerce */}
+        <Route element={<Ecommerce />}>
+          <Route path="ecommerce" element={<PopularWeek />} />
+        </Route>
+
+        {/* VISTAS PRIVADAS */}
+        <Route element={<Private />}>
+        <Route
             path="/youtube/administrador"
             element={<YoutubeAdministrator />}
           />
-          <Route
+        <Route
             path="/youtube/administrador/editar/:id"
             element={<MovieUpdate />}
           />
         </Route>
-        <Route path="/login" element={<Login />}/>
+        
+          
+        
       </Routes>
 
     </BrowserRouter>

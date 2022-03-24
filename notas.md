@@ -60,4 +60,13 @@ Material tiene
 `Context =>` Es la forma en la que podemos compartir datos de manera global, es decir crear un dato y poder obtener el valor de este en cualquier componente
 
 
+
+## Firebase
+
+Actuallizaciones sin nesecidad de refresh
+
+Nos permite guarda informacion en la base de datos sin Backend
+
+
+
  

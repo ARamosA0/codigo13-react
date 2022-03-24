@@ -1,80 +1,58 @@
 import { useState, useEffect } from "react";
-import {
-  Card,
-  CardContent,
-  CardMedia,
-  Container,
-  Grid,
-  TextField,
-  FormControl,
-  InputLabel,
-  Select,
-  MenuItem,
-  CircularProgress,
-} from "@mui/material";
-import { useParams } from "react-router-dom";
+import { Container, Grid, Button } from "@mui/material";
+import { useParams, useNavigate } from "react-router-dom";
 import { getDataFlags } from "../../service/flags";
 import { getCountrieDetail } from "../../service/flags";
+import KeyboardBackspaceRoundedIcon from "@mui/icons-material/KeyboardBackspaceRounded";
 
-const DataFlags = () =>{
+const DataFlags = () => {
+  // Optenemos el valor pasado por la URL
+  const { name } = useParams();
 
+  const history = useNavigate();
 
-    const{name}=useParams();
+  const [country, setCountry] = useState({});
 
-    const [countries, setCountry] = useState({
-        name: "",
-        population: "",
-        region: "",
-        subRegion: "",
-        capital: "",
-        lenguages: "",
-      });
-
-      const handleSetData = (e) => {
-        const { value, name } = e.target;
-        setCountry({
-          ...countries,
-          [name]: value, 
-        });
-      };
-
-      const fetchDetailCountrie = async () => {
-        const response = await getCountrieDetail(name);
-        setCountry({
-            name: response[0].name.common,
-            population: response[0].population,
-            region: response.region,
-            subRegion: response[0].subregion,
-            capital: response[0].capital[0],
-            lenguages:response[0].languages ,
-        })
-        console.log(response);
-    };
+  const [languages, setLanguages] = useState([]);
 
 
+  // Fetch llama a la funcion getCountrieDetail que trae el detalle del pais seleccionado
+  // por la variable pasada por la url
+  const fetchDetailCountrie = async () => {
+    const response = await getCountrieDetail(name);
+    // setea los valores optenidos por getCountrieDetail al objeto country
+    setCountry(response[0]);
+    console.log(response)
+  };
 
+  useEffect(() => {
+    fetchDetailCountrie();
+  }, []);
 
-    useEffect(() => {
-        fetchDetailCountrie();
-      }, []);
-
-    return (
-        <Container maxWidth="m">
-            {countries.length > 0 && (
-                countries.map((country)=>(
-                <Grid container>
-                  <Grid item>
-                    <img scr={country.flags.svg}/>
-                  </Grid>
-                  <Grid item>
-
-                  </Grid>
-                </Grid>
-                )))}
-                
-            
-        </Container>
-    );
-}
+  return (
+    <Container >
+      <Button variant="outline" onClick={(()=>history(-1))}>
+        <KeyboardBackspaceRoundedIcon />
+        Back
+      </Button>
+      {Object.keys(country).length > 0 && (
+        <Grid
+          container
+          alignItems="center"
+          spacing={3}
+          sx={{ height: "100vh" }}
+        >
+          <Grid item md={6}>
+            <img src={country?.flags?.svg} width={400}/>
+          </Grid>
+          <Grid item md={6}>
+            <span>Native Name: {country?.name?.official}</span>
+          </Grid>
+          
+        </Grid>
+      )}
+    </Container>
+  );
+};
 
 export default DataFlags;

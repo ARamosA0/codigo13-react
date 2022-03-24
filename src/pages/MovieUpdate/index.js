@@ -17,9 +17,6 @@ const MovieUpdate = () => {
   
     const handleChangeInput = (e) => {
       const { value, name } = e.target;
-
-
-    
       setValues({
         ...values, // Crea una copia de values
         [name]: value,  // saca el valor de values para usarlos luego

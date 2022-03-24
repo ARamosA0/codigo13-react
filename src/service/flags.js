@@ -1,4 +1,4 @@
-URL = "https://restcountries.com/v3.1/all";
+URL = "https://restcountries.com/v3.1/name/";
 
 export const getCountrieDetail = async (name) => {
     try {
