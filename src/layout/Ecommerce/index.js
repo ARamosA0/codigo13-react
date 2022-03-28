@@ -1,9 +1,10 @@
 import { useContext } from "react";
 import { Badge, Grid, TextField } from "@mui/material";
-import { Outlet } from "react-router-dom";
+import { Outlet, Link } from "react-router-dom";
 import ShoppingBasketRoundedIcon from "@mui/icons-material/ShoppingBasketRounded";
 import logo from "../../assets/logo.svg";
 import { UserContext } from "../../Context/userContext";
+
 import "./index.css";;
 
 const Ecommerce = () => {
@@ -43,7 +44,7 @@ const Ecommerce = () => {
                 <a href="/">Wish List</a>
               </li>
               <li className="li-basket">
-                <a href="/">
+                <Link to="/ecommerce/basket">
                   Basket &nbsp;
                   {/* Si basket existe entonces has basket.length, si no ponle 0 */}
                   <Badge
@@ -52,7 +53,8 @@ const Ecommerce = () => {
                   >
                     <ShoppingBasketRoundedIcon />
                   </Badge>
-                </a>
+                </Link>
+                
               </li>
             </ul>
           </Grid>

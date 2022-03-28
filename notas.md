@@ -65,7 +65,10 @@ Material tiene
 
 Actuallizaciones sin nesecidad de refresh
 
-Nos permite guarda informacion en la base de datos sin Backend
+Nos permite guarda informacion en la base de datos sin
+
+
+
 
 
 

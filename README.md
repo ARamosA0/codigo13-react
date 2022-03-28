@@ -1,3 +1,25 @@
+# Taller de Precentaciones de Proyecto Final
+- Presentacion fluida
+- Identificar el problema a solucionar 
+
+## Estructura dek proyecto
+- Nombre del proyceto
+- Integrantes, especificado datos
+- Tema y descripcion pequena
+- Tecnologias Front y/o backend logos 
+- GANT: como se dividieron las tares
+- Modelo de entidad-realcion BD
+- Descripcion del prototipo
+- Demo
+
+ 
+
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
