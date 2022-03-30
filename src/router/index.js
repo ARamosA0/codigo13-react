@@ -7,19 +7,22 @@
  * el el path creado
  */
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "../pages/Home";
+import Pokemon from "../pages/Pokemon";
 import Flags from "../pages/Flags";
 import Youtube from "../pages/Youtube";
 import YoutubeAdministrator from "../pages/YoutubeAdministrator";
 import MovieUpdate from "../pages/MovieUpdate";
 import DataFlags from "../pages/DetailFlags";
-import Login from "../pages/Login"
+import Login from "../pages/Login";
+import CreateProduct from "../pages/CreateProduct";
 // Layout
 import Main from "../layout/Main";
 import Private from "../layout/Private";
 import Ecommerce from "../layout/Ecommerce";
 import PopularWeek from "../pages/PopularWeek";
 import BasketView from "../pages/BasketView";
+import Profile from "../pages/Profile";
+import Home from "../pages/Home";
 
 // Nuestro Router va a ser un componente el cual se encargue de retornar
 // las rutas con su respectiva vista
@@ -28,10 +31,10 @@ const Router = () => {
   return (
     <BrowserRouter>
       <Routes>
-      {/* ROUTE DEL MAIN (PUBLICAS) */}
-        <Route path="/login" element={<Login />}/>
+        {/* ROUTE DEL MAIN (PUBLICAS) */}
+        <Route path="/login" element={<Login />} />
         <Route element={<Main />}>
-          <Route path="/" element={<Home />} />
+          <Route path="/pokemon" element={<Pokemon />} />
           <Route path="/flags" element={<Flags />} />
           <Route path="/flags/data/:name" element={<DataFlags />} />
           <Route path="/youtube" element={<Youtube />} />
@@ -45,20 +48,19 @@ const Router = () => {
 
         {/* VISTAS PRIVADAS */}
         <Route element={<Private />}>
-        <Route
+          <Route
             path="/youtube/administrador"
             element={<YoutubeAdministrator />}
           />
-        <Route
+          <Route
             path="/youtube/administrador/editar/:id"
             element={<MovieUpdate />}
           />
+          <Route path="/ecomerce/create" element={<CreateProduct />} />
+          <Route path="/perfil" element={<Profile />} />
+          <Route path="/home" element={<Home />} />
         </Route>
-        
-          
-        
       </Routes>
-
     </BrowserRouter>
   );
 };

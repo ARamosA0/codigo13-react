@@ -68,7 +68,9 @@ Actuallizaciones sin nesecidad de refresh
 Nos permite guarda informacion en la base de datos sin
 
 
+## uuid 
 
+guada como 1 con numeros y letras
 
 
 

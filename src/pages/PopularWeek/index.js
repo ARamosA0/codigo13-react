@@ -16,6 +16,8 @@ const PopularWeek = () => {
     setClothes(data);
   };
 
+  
+
   // Vamos a crear un componente que reciva el id del producto
   // Y que verifique si existe en basket
 
