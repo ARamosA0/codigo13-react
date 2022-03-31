@@ -24,6 +24,7 @@ import BasketView from "../pages/BasketView";
 import Profile from "../pages/Profile";
 import Home from "../pages/Home";
 import Map from "../pages/Map";
+import SingUp from "../pages/SingUp";
 
 // Nuestro Router va a ser un componente el cual se encargue de retornar
 // las rutas con su respectiva vista
@@ -34,13 +35,13 @@ const Router = () => {
       <Routes>
         {/* ROUTE DEL MAIN (PUBLICAS) */}
         <Route path="/login" element={<Login />} />
+        <Route path="/singup" element={<SingUp />} />
         <Route element={<Main />}>
           <Route path="/pokemon" element={<Pokemon />} />
           <Route path="/flags" element={<Flags />} />
           <Route path="/flags/data/:name" element={<DataFlags />} />
           <Route path="/youtube" element={<Youtube />} />
           <Route path="/map" element={<Map />} />
-
         </Route>
 
         {/* ROUTE para ecommerce */}

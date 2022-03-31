@@ -74,4 +74,12 @@ guada como 1 con numeros y letras
 
 
 
+## fechas
+
+``npm i @mui/lab``
+`npm install @date-io/date-fns`
+`npm install --save date-fns`
+
+
+
  
