@@ -23,6 +23,7 @@ import PopularWeek from "../pages/PopularWeek";
 import BasketView from "../pages/BasketView";
 import Profile from "../pages/Profile";
 import Home from "../pages/Home";
+import Map from "../pages/Map";
 
 // Nuestro Router va a ser un componente el cual se encargue de retornar
 // las rutas con su respectiva vista
@@ -38,6 +39,8 @@ const Router = () => {
           <Route path="/flags" element={<Flags />} />
           <Route path="/flags/data/:name" element={<DataFlags />} />
           <Route path="/youtube" element={<Youtube />} />
+          <Route path="/map" element={<Map />} />
+
         </Route>
 
         {/* ROUTE para ecommerce */}
