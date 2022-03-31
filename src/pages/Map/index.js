@@ -1,6 +1,6 @@
 import { Container, Grid } from "@mui/material";
 import { MapContainer, TileLayer } from "react-leaflet";
-import "leaflet/dist/leaflet.css";
+import "leaflet/dist/";
 
 const Map = () => {
   // latitude y longitede de lima
